@@ -12,8 +12,10 @@ public:
 	{
 		x = newx;
 		if (x >= 41) { x = 40; }
+		if (x <= -1) { x = 0; }
 		y = newy;
 		if (y >= 3) { y = 2; }
+		if (y <= -1) { y = 0; }
 	};
 };
 class Map
@@ -34,6 +36,7 @@ public:
 		}
 	};
 };
+
 int main()
 {
 	Map world;
@@ -54,7 +57,6 @@ int main()
 			if(maymove == true)
 			{
 				p.move_m((p.x - 1), p.y);
-				cout << p.x << "-" << p.y << endl;
 			}
 		}
 		else if (right != 0)
@@ -63,7 +65,6 @@ int main()
 			if (maymove == true)
 			{
 				p.move_m((p.x + 1), p.y);
-				cout << p.x << "-" << p.y << endl;
 			}
 		}
 		else if (up != 0)
@@ -72,7 +73,6 @@ int main()
 			if (maymove == true)
 			{
 				p.move_m(p.x, (p.y - 1));
-				cout << p.x << "-" << p.y << endl;
 			}
 		}
 		else if (down != 0)
@@ -81,8 +81,9 @@ int main()
 			if (maymove == true)
 			{
 				p.move_m(p.x, (p.y + 1));
-				cout << p.x << "-" << p.y << endl;
 			}
+			
 		}
+		cout << p.x << "-" << p.y << endl;
 	}
 }
